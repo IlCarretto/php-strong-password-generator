@@ -3,10 +3,17 @@ $psw_characters = ["a", "b", "c", "d", "e", "f", "g", "A", "B", "C", "D", "E", "
 ?>
 
 <?php
-$password = $_GET["psw_length"];
-var_dump($password);
+$psw_length = $_GET["psw_length"];
+var_dump($psw_length);
 
-function getCharacters($)
+function getCharacters($psw_length) {
+    // Prendere la lunghezza dell'array e ciclare l'array di caratteri disponibili fino ad arrivare al numero richiesto dalla lunghezza
+    $password = [];
+    $i = 0;
+    while ($i < $psw_length) {
+        $password = 
+    }
+}
 ?>
 
 <!DOCTYPE html>
