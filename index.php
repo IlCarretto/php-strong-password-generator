@@ -1,18 +1,20 @@
 <?php
-$psw_characters = ["a", "b", "c", "d", "e", "f", "g", "A", "B", "C", "D", "E", "F", "G", 1, 2, 3, 4, 5, 6, 7, 8, 9, "!", "?", "$", "%", "£"]
-?>
-
-<?php
 $psw_length = $_GET["psw_length"];
 var_dump($psw_length);
 
-function getCharacters($psw_length) {
-    // Prendere la lunghezza dell'array e ciclare l'array di caratteri disponibili fino ad arrivare al numero richiesto dalla lunghezza
-    $password = [];
-    $i = 0;
-    while ($i < $psw_length) {
-        $password = 
+// rand(int 0, int count($available_characters)): int
+
+if (isset($_GET["psw_length"])) {
+    // Prendere la lunghezza dell'array e ciclare l'array di caratteri disponibili pushandoli all'array della password effettiva fino ad arrivare al numero richiesto dalla lunghezza
+    $available_characters = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ123456789!"£$%&/()=?{}[]';
+    $password_result = "";
+
+    while (strlen($password_result) < $psw_length) {
+        $rnd = rand(0, (strlen($available_characters) - 1));
+        $character = $available_characters[$rnd];
+        $password_result .= $character;
     }
+    echo $password_result;
 }
 ?>
 
