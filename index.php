@@ -1,20 +1,11 @@
 <?php
-$psw_length = $_GET["psw_length"];
-var_dump($psw_length);
+
+include __DIR__ . "/functions.php";
 
 // rand(int 0, int count($available_characters)): int
 
 if (isset($_GET["psw_length"])) {
-    // Prendere la lunghezza dell'array e ciclare l'array di caratteri disponibili pushandoli all'array della password effettiva fino ad arrivare al numero richiesto dalla lunghezza
-    $available_characters = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ123456789!"£$%&/()=?{}[]';
-    $password_result = "";
-
-    while (strlen($password_result) < $psw_length) {
-        $rnd = rand(0, (strlen($available_characters) - 1));
-        $character = $available_characters[$rnd];
-        $password_result .= $character;
-    }
-    echo $password_result;
+    $result = generateRndPsw($psw_length);
 }
 ?>
 
